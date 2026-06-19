@@ -31,21 +31,13 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
 
-    - name: Cache Gradle packages
-      uses: actions/cache@v4
+    - name: Setup Gradle 6.5
+      uses: gradle/actions/setup-gradle@v3
       with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          gradle-${{ runner.os }}-
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+        gradle-version: 6.5
 
     - name: Build with Gradle
-      run: ./gradlew assembleDebug --stacktrace
+      run: gradle assembleDebug --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
