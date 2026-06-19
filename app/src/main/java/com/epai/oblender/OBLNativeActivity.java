@@ -3,7 +3,7 @@ package com.epai.oblender;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.FragmentTransaction;
-import android.app.NativeActivity;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -49,7 +49,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.File;
 import java.io.IOException;
 
-public class OBLNativeActivity extends NativeActivity {
+public class OBLNativeActivity extends Activity {
     private static final String TAG = "OBLNativeActivity";
 
     // Load native libraries
