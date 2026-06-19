@@ -115,7 +115,6 @@ public class OBLNativeActivity extends NativeActivity {
                 finish();
                 return;
             }
-            final String homePath = FileUtils.getExternStorageDir(this, "obl");
 
             if (sNativeLibLoaded) {
                 try {
