@@ -27,11 +27,7 @@
             android:screenOrientation="landscape"
             android:resizeableActivity="true"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
-            android:windowSoftInputMode="adjustNothing">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="blender" />
-        </activity>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".StartupActivity"
             android:theme="@style/Theme.OBlender.Fullscreen"
