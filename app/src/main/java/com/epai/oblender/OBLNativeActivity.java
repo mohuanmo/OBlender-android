@@ -107,10 +107,8 @@ public class OBLNativeActivity extends NativeActivity {
                 // Fallback to internal files dir
                 externFileDirPath = getFilesDir().getPath();
             }
-            FileUtils.copyDirectory("files", externFileDirPath, assetManager);
-
-            // 修复：FileUtils.getExternStorageDir() 可能返回 null
-            File externStorageDir = FileUtils.getExternStorageDir(this);
+            // 修复：FileUtils.getExternStorageDir() 需要两个参数
+            File externStorageDir = FileUtils.getExternStorageDir(this, "obl");
             if (externStorageDir == null) {
                 Log.e(TAG, "Cannot get external storage directory");
                 Toast.makeText(this, "存储权限不足，请手动授予", Toast.LENGTH_SHORT).show();
