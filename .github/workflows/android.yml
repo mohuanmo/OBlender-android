@@ -60,3 +60,15 @@ jobs:
       with:
         name: app-debug
         path: app/build/outputs/apk/debug/*.apk
+
+    - name: Release APK to GitHub
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v0.0.3-java
+        name: OBlender v0.0.3-java (Pure Java)
+        files: app/build/outputs/apk/debug/*.apk
+        generate_release_notes: false
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
