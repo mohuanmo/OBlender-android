@@ -9,15 +9,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up JDK 8
+    - name: Set up JDK 17 (for SDK manager)
       uses: actions/setup-java@v4
       with:
-        java-version: '8'
+        java-version: '17'
         distribution: 'temurin'
 
     - name: Set up Android SDK
@@ -25,12 +25,11 @@ jobs:
       with:
         packages: 'platform-tools platforms;android-30 build-tools;30.0.3 ndk;21.4.7075529'
 
-    - name: Remove incompatible SDK platforms
-      run: |
-        rm -rf $ANDROID_HOME/platforms/android-34
-        rm -rf $ANDROID_HOME/platforms/android-33
-        rm -rf $ANDROID_HOME/platforms/android-35
-        ls -la $ANDROID_HOME/platforms/
+    - name: Set up JDK 8 (for AGP 4.1.1 build)
+      uses: actions/setup-java@v4
+      with:
+        java-version: '8'
+        distribution: 'temurin'
 
     - name: Cache Gradle packages
       uses: actions/cache@v4
