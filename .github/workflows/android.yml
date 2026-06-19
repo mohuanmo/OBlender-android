@@ -73,5 +73,6 @@ jobs:
         files: app/build/outputs/apk/debug/*.apk
         generate_release_notes: false
         prerelease: true
+        update: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
