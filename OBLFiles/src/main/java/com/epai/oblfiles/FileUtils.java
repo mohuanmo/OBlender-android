@@ -168,7 +168,13 @@ public final class FileUtils {
         }
     }
 
-    // 🔧 修复：验证文件是否存在且大小正确
+    // Fixed: check if file or directory exists
+    public static boolean exist(String filePath) {
+        if (TextUtils.isEmpty(filePath)) return false;
+        return new File(filePath).exists();
+    }
+
+    // Fixed: verify file exists and size matches
     public static boolean verifyFile(String filePath, long expectedSize) {
         if (TextUtils.isEmpty(filePath)) return false;
         File file = new File(filePath);
